@@ -1,0 +1,14 @@
+%h1
+  %span#page_title Search
+=render 'form'
+-if @results.empty?
+  %p
+    ="No results found for \"<span class='match'>#{@query}</span>\".".html_safe
+-else
+  %ul.unstyled
+    -@results.each do |result|
+      %li
+        %h2=link_to(highlight(result.to_s,@query,:highlighter => '<span class="match">\1</span>'),result)
+        =link_to(result.excerpts.text.html_safe,result)
+        %hr
+  =will_paginate(@results)
