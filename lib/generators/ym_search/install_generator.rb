@@ -7,7 +7,6 @@ module YmSearch
 
       def manifest
         copy_file "controllers/searches_controller.rb", "app/controllers/searches_controller.rb"
-        copy_file "search_indices.rb", "config/initializers/search_indices.rb"
       end
       
     end
